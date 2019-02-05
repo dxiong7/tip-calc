@@ -29,10 +29,9 @@ class ViewController: UIViewController {
         let bill = Double(billField.text!) ?? 0
         
         let defaults = UserDefaults.standard
-        customTipPercentage = defaults.double(forKey: "myCustomTip") / 100
-        let tip = bill * customTipPercentage
+        let tip = defaults.double(forKey: "myDefaultTipPercentage") * bill
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "myDefaultTipIndex")
         let total = bill + tip
-        
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         // This is a good place to retrieve the default tip percentage from UserDefaults
@@ -49,8 +48,8 @@ class ViewController: UIViewController {
         //gets the bill amount, calculates tip and total
         //and updates the tip and total labels
         let bill = Double(billField.text!) ?? 0
-        //let tipPercentages = [0.1, 0.15, 0.2]
-        //let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let tipPercentages = [0.1, 0.15, 0.2]
+        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
         tipLabel.text = String(format: "$%.2f", tip)

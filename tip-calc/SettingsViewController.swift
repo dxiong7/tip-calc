@@ -9,8 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
-    @IBOutlet weak var customTipField: UITextField!
+    
+    @IBOutlet weak var defaultTipControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,14 +20,22 @@ class SettingsViewController: UIViewController {
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true);
     }
-    
-    @IBAction func changeTip(_ sender: Any) {
+    override func viewWillDisappear(_ animated: Bool) {
         
+        super.viewWillDisappear(animated)
+        print("view will disappear")
         let defaults = UserDefaults.standard
-        let customTip = Double(customTipField.text!)
+        let tipPercentages = [0.1, 0.15, 0.2]
+        let defaultTipIndex = defaultTipControl.selectedSegmentIndex
         
-        defaults.set(customTip, forKey: "myCustomTip")
+        print("defaultTipIndex is ", defaultTipIndex)
+        let defaultTip = tipPercentages[defaultTipIndex]
+        defaults.set(defaultTip, forKey: "myDefaultTipPercentage")
+        defaults.set(defaultTipIndex, forKey: "myDefaultTipIndex")
         defaults.synchronize()
+        
+    }
+    @IBAction func changeTip(_ sender: Any) {
         
     }
     /*
