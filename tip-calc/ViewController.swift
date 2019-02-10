@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var customTipPercentage = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.billField.becomeFirstResponder()
         let defaults = UserDefaults.standard
         tipControl.selectedSegmentIndex = defaults.integer(forKey: "myDefaultTipIndex")
         let lastTimeDiff = Date(timeIntervalSinceNow: TimeInterval(10))
@@ -61,7 +62,6 @@ class ViewController: UIViewController {
         let total = bill + tip
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
-        billField.becomeFirstResponder()
         // This is a good place to retrieve the default tip percentage from UserDefaults
         // and use it to update the tip amount
     }
