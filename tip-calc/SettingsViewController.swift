@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
+    @IBOutlet weak var defaultTipLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,11 @@ class SettingsViewController: UIViewController {
         view.endEditing(true);
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.defaultTipControl.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.defaultTipLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.view.backgroundColor = .white
+        
         let defaults = UserDefaults.standard
         defaultTipControl.selectedSegmentIndex = defaults.integer(forKey: "myDefaultTipIndex")
     }

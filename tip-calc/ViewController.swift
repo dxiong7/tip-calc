@@ -24,12 +24,8 @@ class ViewController: UIViewController {
         let lastTimeDiff = Date(timeIntervalSinceNow: TimeInterval(10))
         if (Date() < lastTimeDiff) {
             print("remembering last bill amount and setting")
-            if (defaults.double(forKey: "BillAmount") == 0) {
-                billField.text = ""
-            }
-            else {
-                billField.text = String(defaults.double(forKey: "BillAmount"))
-            }
+            billField.text = defaults.string(forKey: "BillAmountString")
+            
             let bill = Double(billField.text!) ?? 0
             let tipPercentages = [0.1, 0.15, 0.2]
             let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
@@ -48,6 +44,15 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.billField.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.view.backgroundColor = .white
+        self.tipControl.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.tipLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.totalLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        //self.navigationController.navigationBar.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+
         let defaults = UserDefaults.standard
         let bill = Double(billField.text!) ?? 0
         
@@ -81,6 +86,7 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total)
         
         //save bill amount in user Defaults
+        defaults.set(billField.text, forKey: "BillAmountString")
         defaults.set(bill, forKey: "BillAmount")
         defaults.synchronize()
         
@@ -98,6 +104,7 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         
         let bill = Double(billField.text!) ?? 0
+        defaults.set(billField.text, forKey: "BillAmountString")
         defaults.set(bill, forKey: "BillAmount")
         defaults.synchronize()
         

@@ -146,39 +146,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="egt-ay-bPU">
-                                <rect key="frame" x="16" y="96" width="343" height="102"/>
+                                <rect key="frame" x="16" y="96" width="343" height="28"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="CQi-cL-rmF">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pa-GS-bdu">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wpi-A8-n3D">
-                                                <rect key="frame" x="130.5" y="0.0" width="212.5" height="32"/>
+                                                <rect key="frame" x="130.5" y="0.0" width="212.5" height="29"/>
                                                 <segments>
                                                     <segment title="10%"/>
                                                     <segment title="15%"/>
                                                     <segment title="20%"/>
                                                 </segments>
                                             </segmentedControl>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="164" translatesAutoresizingMaskIntoConstraints="NO" id="ppW-ry-AlT">
-                                        <rect key="frame" x="0.0" y="71" width="343" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFd-fs-mP4">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="31"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0mJ-gw-Syj">
-                                                <rect key="frame" x="294" y="0.0" width="51" height="31"/>
-                                            </switch>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -198,6 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="defaultTipControl" destination="wpi-A8-n3D" id="5Tz-Wz-Whh"/>
+                        <outlet property="defaultTipLabel" destination="3Pa-GS-bdu" id="mUL-qg-pb5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvV-wD-4bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
