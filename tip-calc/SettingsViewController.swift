@@ -23,28 +23,22 @@ class SettingsViewController: UIViewController {
         view.endEditing(true);
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-        self.defaultTipControl.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
-        self.defaultTipLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.defaultTipControl.tintColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
         self.view.backgroundColor = .white
         
         let defaults = UserDefaults.standard
         defaultTipControl.selectedSegmentIndex = defaults.integer(forKey: "myDefaultTipIndex")
     }
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
-        //print("view will disappear")
         let defaults = UserDefaults.standard
         let tipPercentages = [0.1, 0.15, 0.2]
         let defaultTipIndex = defaultTipControl.selectedSegmentIndex
         
-        //print("defaultTipIndex is ", defaultTipIndex)
         let defaultTip = tipPercentages[defaultTipIndex]
         defaults.set(defaultTip, forKey: "myDefaultTipPercentage")
         defaults.set(defaultTipIndex, forKey: "myDefaultTipIndex")
         defaults.synchronize()
-        
     }
     /*
     // MARK: - Navigation

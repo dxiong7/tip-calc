@@ -18,10 +18,11 @@ class ViewController: UIViewController {
     var customTipPercentage = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let defaults = UserDefaults.standard
-        
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "myDefaultTipIndex")
         let lastTimeDiff = Date(timeIntervalSinceNow: TimeInterval(10))
+        print("it has been ", lastTimeDiff, "minutes")
+        
         if (Date() < lastTimeDiff) {
             print("remembering last bill amount and setting")
             billField.text = defaults.string(forKey: "BillAmountString")
@@ -45,13 +46,12 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.billField.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.billField.textColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
         self.view.backgroundColor = .white
-        self.tipControl.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
-        self.tipLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
-        self.totalLabel.textColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
-        //self.navigationController.navigationBar.tintColor = UIColor(red: 1/255, green: 55/255, blue: 2/255, alpha: 1)
+        self.tipControl.tintColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
+        self.tipLabel.textColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
+        self.totalLabel.textColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 52/255, green: 74/255, blue: 40/255, alpha: 1)
 
         let defaults = UserDefaults.standard
         let bill = Double(billField.text!) ?? 0
